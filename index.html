@@ -885,7 +885,7 @@ function buildEvents(selectedIpos, activeEventTypes) {
       const dateStr = ipo[DATE_FIELD[type]];
       if (!dateStr) return;
       events.push({
-        summary: `[${ipo.name}] ${EVENT_LABELS[type]}`,
+        summary: `[공모주] ${ipo.name} ${EVENT_LABELS[type]}`,
         description: buildDescription(ipo),
         start: { date: toIsoDate(dateStr) },
         end:   { date: toIsoDate(dateStr) }
