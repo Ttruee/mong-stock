@@ -644,10 +644,14 @@ function init() {
 
   // 이벤트 유형 복원
   const savedEvents = JSON.parse(localStorage.getItem('ipo_active_events') || 'null');
-  if (savedEvents) {
+  if (savedEvents && savedEvents.length > 0) {
     document.querySelectorAll('#eventCheckboxes input').forEach(cb => {
       cb.checked = savedEvents.includes(cb.value);
     });
+  } else {
+    // 첫 방문 시 기본 선택 상태를 localStorage에 저장
+    const defaultActive = [...document.querySelectorAll('#eventCheckboxes input:checked')].map(c => c.value);
+    localStorage.setItem('ipo_active_events', JSON.stringify(defaultActive));
   }
 
   render();
