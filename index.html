@@ -423,6 +423,48 @@
     }
     .empty-state .icon { font-size: 36px; margin-bottom: 12px; }
     .empty-state p { font-size: 14px; }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 13px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 200;
+      opacity: 0;
+      transition: opacity .25s, transform .25s;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .toast.success { border-color: var(--green); }
+    .toast.error   { border-color: var(--red); }
+
+    /* ── REGISTER BTN LOADING ── */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(0,0,0,.3);
+      border-top-color: #0e0f11;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
   </style>
 </head>
 <body>
@@ -505,6 +547,9 @@
 
 </div>
 
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
 <!-- FOOTER -->
 <div class="footer-bar">
   <div class="footer-inner">
@@ -517,6 +562,22 @@
   </div>
 </div>
 
+<!-- Google API scripts (lazy-loaded on demand) -->
+<script>
+// ──────────────────────────────────────────
+// Google Calendar 연동 설정 방법
+// 1. https://console.cloud.google.com 접속
+// 2. 새 프로젝트 생성
+// 3. Google Calendar API 활성화
+// 4. OAuth 2.0 클라이언트 ID 생성 (웹 애플리케이션)
+// 5. 승인된 JavaScript 원본에 아래 추가:
+//    - http://localhost (로컬 파일 실행 시)
+//    - file:// (직접 파일 열기 시)
+// 6. 아래 CLIENT_ID에 발급받은 클라이언트 ID 입력
+// ──────────────────────────────────────────
+const CLIENT_ID = '416628876905-btnptt8qjkd71o4a4i5mlg67m1gg4c2s.apps.googleusercontent.com';
+const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
+</script>
 <script>
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // COWORK_UPDATE_START — 이 아래 데이터를 매달 업데이트
@@ -774,9 +835,222 @@ function toggleEvent(cb) {
   localStorage.setItem('ipo_active_events', JSON.stringify(active));
 }
 
-function handleRegister() {
-  // TASK 4에서 Google Calendar 연동 구현 예정
-  alert('Google Calendar 연동은 TASK 4에서 구현됩니다.\nCLIENT_ID를 설정하면 사용 가능합니다.');
+// ── GOOGLE CALENDAR INTEGRATION ──
+
+const EVENT_LABELS = {
+  sub_start:   '청약 시작',
+  sub_end:     '청약 종료',
+  list_date:   '상장일',
+  refund_date: '환불일'
+};
+
+// MM.DD → YYYY-MM-DD (현재 연도 기준)
+function toIsoDate(mmdd) {
+  const [m, d] = mmdd.split('.').map(Number);
+  const year   = new Date().getFullYear();
+  return `${year}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+}
+
+function buildDescription(ipo) {
+  const rateStr = ipo.comp_rate ? `${ipo.comp_rate.toLocaleString()}:1` : '미정';
+  return [
+    `시장: ${ipo.market}`,
+    `공모가: ${ipo.price}`,
+    `기관 경쟁률: ${rateStr}`,
+    `주관사: ${ipo.lead_manager}`,
+    `청약: ${ipo.sub_start} ~ ${ipo.sub_end}`,
+    `상장: ${ipo.list_date}`
+  ].join('\n');
+}
+
+function buildEvents(selectedIpos, activeEventTypes) {
+  const events = [];
+  const DATE_FIELD = {
+    sub_start:   'sub_start',
+    sub_end:     'sub_end',
+    list_date:   'list_date',
+    refund_date: 'refund_date'
+  };
+  selectedIpos.forEach(ipo => {
+    activeEventTypes.forEach(type => {
+      const dateStr = ipo[DATE_FIELD[type]];
+      if (!dateStr) return;
+      events.push({
+        summary: `[${ipo.name}] ${EVENT_LABELS[type]}`,
+        description: buildDescription(ipo),
+        start: { date: toIsoDate(dateStr) },
+        end:   { date: toIsoDate(dateStr) }
+      });
+    });
+  });
+  return events;
+}
+
+// ── TOAST ──
+let toastTimer = null;
+function showToast(msg, type = 'success') {
+  const el = document.getElementById('toast');
+  el.textContent = type === 'success' ? '✓ ' + msg : '✕ ' + msg;
+  el.className   = `toast ${type} show`;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.classList.remove('show'); }, 2500);
+}
+
+// ── REGISTER BTN STATE ──
+function setRegisterLoading(on) {
+  const btn = document.getElementById('registerBtn');
+  if (on) {
+    btn.disabled   = true;
+    btn.innerHTML  = '<span class="spinner"></span>등록 중...';
+  } else {
+    const cnt = IPOS.filter(i => i.selected).length;
+    btn.disabled  = cnt === 0;
+    btn.innerHTML = '📅 Google Calendar에 등록';
+  }
+}
+
+// ── MARK REGISTERED ──
+function markRegistered(ids) {
+  ids.forEach(id => {
+    const ipo = IPOS.find(i => i.id === id);
+    if (ipo) { ipo.registered = true; ipo.selected = false; }
+  });
+  const allRegistered = IPOS.filter(i => i.registered).map(i => i.id);
+  localStorage.setItem('ipo_registered', JSON.stringify(allRegistered));
+  render();
+}
+
+// ── GOOGLE API LOADER ──
+let gapiReady = false;
+let gisReady  = false;
+let tokenClient = null;
+
+function loadGoogleScripts() {
+  return new Promise((resolve, reject) => {
+    let loaded = 0;
+    const check = () => { if (++loaded === 2) resolve(); };
+
+    if (!document.getElementById('gapi-script')) {
+      const s = document.createElement('script');
+      s.id  = 'gapi-script';
+      s.src = 'https://apis.google.com/js/api.js';
+      s.onload  = () => { gapi.load('client', () => { gapiReady = true; check(); }); };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    } else { check(); }
+
+    if (!document.getElementById('gis-script')) {
+      const s = document.createElement('script');
+      s.id  = 'gis-script';
+      s.src = 'https://accounts.google.com/gsi/client';
+      s.onload  = () => { gisReady = true; check(); };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    } else { check(); }
+  });
+}
+
+async function initGapi() {
+  await gapi.client.init({});
+  await gapi.client.load('https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest');
+}
+
+function getStoredToken() {
+  try {
+    const t = JSON.parse(localStorage.getItem('gcal_token') || 'null');
+    if (!t) return null;
+    if (Date.now() > t.expires_at - 60000) { localStorage.removeItem('gcal_token'); return null; }
+    return t.access_token;
+  } catch { return null; }
+}
+
+function storeToken(tokenResponse) {
+  const expires_at = Date.now() + (tokenResponse.expires_in || 3600) * 1000;
+  localStorage.setItem('gcal_token', JSON.stringify({
+    access_token: tokenResponse.access_token,
+    expires_at
+  }));
+}
+
+function requestToken() {
+  return new Promise((resolve, reject) => {
+    if (!tokenClient) {
+      tokenClient = google.accounts.oauth2.initTokenClient({
+        client_id: CLIENT_ID,
+        scope: SCOPES,
+        callback: (resp) => {
+          if (resp.error) { reject(new Error(resp.error)); return; }
+          storeToken(resp);
+          resolve(resp.access_token);
+        }
+      });
+    }
+    tokenClient.requestAccessToken({ prompt: '' });
+  });
+}
+
+async function getAccessToken() {
+  const stored = getStoredToken();
+  if (stored) return stored;
+  return requestToken();
+}
+
+// ── CREATE EVENTS VIA API ──
+async function createCalendarEvents(events, accessToken) {
+  gapi.client.setToken({ access_token: accessToken });
+  const results = await Promise.allSettled(
+    events.map(ev =>
+      gapi.client.calendar.events.insert({ calendarId: 'primary', resource: ev })
+    )
+  );
+  const failed = results.filter(r => r.status === 'rejected');
+  return { total: events.length, failed: failed.length };
+}
+
+// ── MAIN HANDLER ──
+async function handleRegister() {
+  if (CLIENT_ID === 'YOUR_GOOGLE_CLIENT_ID_HERE') {
+    showToast('CLIENT_ID를 설정해주세요. 파일 상단 주석을 참고하세요.', 'error');
+    return;
+  }
+
+  const selectedIpos = IPOS.filter(i => i.selected && !i.registered);
+  if (selectedIpos.length === 0) return;
+
+  const activeEventTypes = [...document.querySelectorAll('#eventCheckboxes input:checked')]
+    .map(c => c.value);
+
+  const events = buildEvents(selectedIpos, activeEventTypes);
+  if (events.length === 0) return;
+
+  setRegisterLoading(true);
+
+  try {
+    await loadGoogleScripts();
+    if (!gapiReady) await initGapi();
+    else if (!gapi.client.calendar) await initGapi();
+
+    const token = await getAccessToken();
+    const { total, failed } = await createCalendarEvents(events, token);
+
+    if (failed === 0) {
+      markRegistered(selectedIpos.map(i => i.id));
+      showToast(`${total}개 이벤트를 Google Calendar에 등록했습니다.`, 'success');
+    } else if (failed < total) {
+      markRegistered(selectedIpos.map(i => i.id));
+      showToast(`일부 등록 실패 (${total - failed}/${total}건 성공)`, 'error');
+    } else {
+      showToast('등록에 실패했습니다. 다시 시도해주세요.', 'error');
+    }
+  } catch (err) {
+    console.error('Calendar registration error:', err);
+    const msg = err.message?.includes('popup') ? '팝업이 차단되었습니다. 팝업을 허용해주세요.'
+              : err.message?.includes('access_denied') ? 'Google 로그인이 취소되었습니다.'
+              : '등록 중 오류가 발생했습니다.';
+    showToast(msg, 'error');
+  } finally {
+    setRegisterLoading(false);
+  }
 }
 
 // ── BOOT ──
