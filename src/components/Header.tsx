@@ -15,7 +15,7 @@ export default function Header({ currentView, onViewChange, lastUpdated }: Heade
   return (
     <header className="header">
       <div className="header-left">
-        <h1>주린이레이더</h1>
+        <h1>🔍 주린이레이더</h1>
         <div className="subtitle">
           <span className="month">{currentMonth}</span>
           <span className="last-updated">업데이트: {lastUpdated}</span>

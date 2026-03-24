@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: '주린이레이더',
+  title: '🔍 주린이레이더',
   description: '공모주 청약 일정 및 Google Calendar 등록 도구',
 };
 
