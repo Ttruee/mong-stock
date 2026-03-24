@@ -261,7 +261,8 @@
       background: rgba(74, 222, 128, .04);
     }
     .ipo-card.registered { opacity: .45; pointer-events: none; }
-    .ipo-card.past { opacity: .7; }
+    .ipo-card.past { opacity: .5; }
+    .ipo-card.upcoming { background: rgba(255, 255, 255, 0.06); border-color: rgba(255,255,255,0.12); }
 
     /* checkbox col */
     .card-check {
@@ -750,7 +751,8 @@ function buildCard(ipo) {
     'ipo-card',
     ipo.selected   ? 'selected'   : '',
     ipo.registered ? 'registered' : '',
-    past && !ipo.registered ? 'past' : ''
+    past && !ipo.registered ? 'past' : '',
+    !past && !ipo.registered ? 'upcoming' : ''
   ].filter(Boolean).join(' ');
 
   return `
