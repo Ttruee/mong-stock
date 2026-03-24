@@ -484,8 +484,9 @@ body {
 
 /* ── THEME TOGGLE BUTTON ── */
 .theme-btn {
-  font-size: 12px;
-  padding: 7px 12px;
+  font-size: 16px;
+  padding: 5px 10px;
+  line-height: 1;
 }
 
 /* ── MODAL ── */

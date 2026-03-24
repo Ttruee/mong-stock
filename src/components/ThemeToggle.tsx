@@ -23,8 +23,8 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button className="toggle-btn theme-btn" onClick={toggle} title="테마 변경">
-      {theme === 'dark' ? '라이트' : '다크'}
+    <button className="toggle-btn theme-btn" onClick={toggle} title={theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환'}>
+      {theme === 'dark' ? '☀️' : '🌙'}
     </button>
   );
 }

@@ -23,7 +23,6 @@ export default function Header({ currentView, onViewChange, lastUpdated }: Heade
         </div>
       </div>
       <div className="header-right">
-        <ThemeToggle />
         <button
           className={`toggle-btn${currentView === 'week' ? ' active' : ''}`}
           onClick={() => onViewChange('week')}
@@ -36,6 +35,7 @@ export default function Header({ currentView, onViewChange, lastUpdated }: Heade
         >
           이번 달
         </button>
+        <ThemeToggle />
       </div>
     </header>
   );
