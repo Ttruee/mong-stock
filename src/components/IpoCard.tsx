@@ -6,9 +6,10 @@ import { isPast, rateClass } from './utils';
 interface IpoCardProps {
   ipo: IpoRuntime;
   onToggle: (id: number) => void;
+  onDetail: (ipo: IpoRuntime) => void;
 }
 
-export default function IpoCard({ ipo, onToggle }: IpoCardProps) {
+export default function IpoCard({ ipo, onToggle, onDetail }: IpoCardProps) {
   const sectorKey   = SECTOR_LABEL[ipo.sector] ? ipo.sector : 'etc';
   const sectorLabel = SECTOR_LABEL[sectorKey];
   const sectorCls   = SECTOR_CLASS[sectorKey];
@@ -75,6 +76,13 @@ export default function IpoCard({ ipo, onToggle }: IpoCardProps) {
           <span className="date-val">{ipo.list_date}</span>
         </div>
       </div>
+      <button
+        className="card-detail-btn"
+        onClick={e => { e.stopPropagation(); onDetail(ipo); }}
+        title="상세 보기"
+      >
+        ›
+      </button>
     </div>
   );
 }

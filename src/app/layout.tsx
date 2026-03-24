@@ -4,6 +4,15 @@ import './globals.css';
 export const metadata: Metadata = {
   title: '🔍 주린이레이더',
   description: '공모주 청약 일정 및 Google Calendar 등록 도구',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: '주린이레이더',
+  },
+  icons: {
+    apple: '/icon.svg',
+  },
 };
 
 export default function RootLayout({
@@ -12,8 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" data-theme="dark">
       <head>
+        <meta name="theme-color" content="#4ade80" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

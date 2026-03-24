@@ -1,6 +1,7 @@
 'use client';
 
 import { ViewType } from './types';
+import ThemeToggle from './ThemeToggle';
 
 interface HeaderProps {
   currentView: ViewType;
@@ -22,6 +23,7 @@ export default function Header({ currentView, onViewChange, lastUpdated }: Heade
         </div>
       </div>
       <div className="header-right">
+        <ThemeToggle />
         <button
           className={`toggle-btn${currentView === 'week' ? ' active' : ''}`}
           onClick={() => onViewChange('week')}

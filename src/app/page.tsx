@@ -8,6 +8,7 @@ import EventPanel from '@/components/EventPanel';
 import CardList from '@/components/CardList';
 import FooterBar from '@/components/FooterBar';
 import Toast from '@/components/Toast';
+import IpoDetailModal from '@/components/IpoDetailModal';
 import {
   IpoRuntime,
   IpoData,
@@ -85,6 +86,7 @@ export default function Home() {
   const [currentView, setCurrentView] = useState<ViewType>('week');
   const [activeEvents, setActiveEvents] = useState<EventType[]>(DEFAULT_ACTIVE_EVENTS);
   const [loading, setLoading] = useState(false);
+  const [detailIpo, setDetailIpo] = useState<IpoRuntime | null>(null);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | ''; visible: boolean }>({
     message: '',
     type: '',
@@ -361,7 +363,11 @@ export default function Home() {
         currentFilter={currentFilter}
         currentView={currentView}
         onToggle={handleToggleCard}
+        onDetail={setDetailIpo}
       />
+      {detailIpo && (
+        <IpoDetailModal ipo={detailIpo} onClose={() => setDetailIpo(null)} />
+      )}
       <Toast message={toast.message} type={toast.type} visible={toast.visible} />
       <FooterBar
         selectedCount={selectedCount}

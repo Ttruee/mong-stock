@@ -9,9 +9,10 @@ interface CardListProps {
   currentFilter: FilterType;
   currentView: ViewType;
   onToggle: (id: number) => void;
+  onDetail: (ipo: IpoRuntime) => void;
 }
 
-export default function CardList({ ipos, currentFilter, currentView, onToggle }: CardListProps) {
+export default function CardList({ ipos, currentFilter, currentView, onToggle, onDetail }: CardListProps) {
   let list = [...ipos];
 
   // 섹터 필터
@@ -49,7 +50,7 @@ export default function CardList({ ipos, currentFilter, currentView, onToggle }:
   return (
     <div className="card-list">
       {list.map(ipo => (
-        <IpoCard key={ipo.id} ipo={ipo} onToggle={onToggle} />
+        <IpoCard key={ipo.id} ipo={ipo} onToggle={onToggle} onDetail={onDetail} />
       ))}
     </div>
   );
