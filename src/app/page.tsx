@@ -97,8 +97,7 @@ export default function Home() {
 
   // ── 데이터 로드 ──
   useEffect(() => {
-    const basePath = process.env.NODE_ENV === 'production' ? '/mong-stock' : '';
-    fetch(`${basePath}/data/ipos.json`)
+    fetch('/mong-stock/data/ipos.json')
       .then(r => r.json())
       .then((json: { lastUpdated: string; ipos: IpoData[] }) => {
         const now = new Date();
