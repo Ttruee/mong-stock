@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: '주린이레이더',
   },
   icons: {
-    apple: '/icon.svg',
+    apple: '/icon.png',
   },
 };
 
