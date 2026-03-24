@@ -267,7 +267,7 @@ body {
 }
 .ipo-card.registered { opacity: .45; pointer-events: none; }
 .ipo-card.past { opacity: .5; }
-.ipo-card.upcoming { background: rgba(255, 255, 255, 0.06); border-color: rgba(255,255,255,0.12); }
+.ipo-card.upcoming { background: var(--surface); border-color: var(--border); }
 .ipo-card.upcoming.selected { border-left-color: var(--green); }
 
 /* checkbox col */
