@@ -486,8 +486,10 @@ body {
 
 /* ── THEME TOGGLE BUTTON ── */
 .theme-btn {
-  font-size: 16px;
-  padding: 5px 10px;
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
 }
 
