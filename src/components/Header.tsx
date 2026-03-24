@@ -15,27 +15,27 @@ export default function Header({ currentView, onViewChange, lastUpdated }: Heade
 
   return (
     <header className="header">
-      <div className="header-left">
+      <div className="header-top">
         <h1>🔍 주린이레이더</h1>
-        <div className="subtitle">
-          <span className="month">{currentMonth}</span>
-          <span className="last-updated">업데이트: {lastUpdated}</span>
+        <div className="header-right">
+          <button
+            className={`toggle-btn${currentView === 'week' ? ' active' : ''}`}
+            onClick={() => onViewChange('week')}
+          >
+            이번 주
+          </button>
+          <button
+            className={`toggle-btn${currentView === 'month' ? ' active' : ''}`}
+            onClick={() => onViewChange('month')}
+          >
+            이번 달
+          </button>
+          <ThemeToggle />
         </div>
       </div>
-      <div className="header-right">
-        <button
-          className={`toggle-btn${currentView === 'week' ? ' active' : ''}`}
-          onClick={() => onViewChange('week')}
-        >
-          이번 주
-        </button>
-        <button
-          className={`toggle-btn${currentView === 'month' ? ' active' : ''}`}
-          onClick={() => onViewChange('month')}
-        >
-          이번 달
-        </button>
-        <ThemeToggle />
+      <div className="subtitle">
+        <span className="month">{currentMonth}</span>
+        <span className="last-updated">업데이트: {lastUpdated}</span>
       </div>
     </header>
   );
