@@ -391,25 +391,24 @@ body {
 .footer-info strong { color: var(--green); font-family: 'DM Mono', monospace; }
 .footer-credit {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
   width: 100%;
   max-width: 860px;
-  padding-top: 10px;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: calc(6px + env(safe-area-inset-bottom));
 }
-.footer-credit-line {
-  flex: 1;
+.footer-credit-divider {
+  width: 100%;
   height: 1px;
   background: var(--border);
+  margin-bottom: 8px;
 }
 .footer-credit-text {
   font-size: 11px;
   color: var(--muted);
-  opacity: 0.6;
-  white-space: nowrap;
+  opacity: 0.55;
   font-family: 'DM Mono', monospace;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 .register-btn {
   padding: 11px 28px;
