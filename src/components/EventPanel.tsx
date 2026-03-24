@@ -9,8 +9,8 @@ interface EventPanelProps {
 }
 
 const EVENT_ITEMS: { value: EventType; label: string }[] = [
-  { value: 'sub_start',   label: '청약 시작일' },
-  { value: 'sub_end',     label: '청약 종료일' },
+  { value: 'sub_start',   label: '청약시작일' },
+  { value: 'sub_end',     label: '청약종료일' },
   { value: 'list_date',   label: '상장일' },
   { value: 'refund_date', label: '환불일' },
 ];
