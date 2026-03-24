@@ -24,7 +24,7 @@ export default function FooterBar({ selectedCount, loading, onRegister }: Footer
               등록 중...
             </>
           ) : (
-            '📅 Google Calendar에 등록'
+            '📅 Google Calendar 등록'
           )}
         </button>
       </div>
