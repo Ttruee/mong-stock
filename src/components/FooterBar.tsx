@@ -28,6 +28,11 @@ export default function FooterBar({ selectedCount, loading, onRegister }: Footer
           )}
         </button>
       </div>
+      <div className="footer-credit">
+        <span className="footer-credit-line" />
+        <span className="footer-credit-text">made in JinsolNara</span>
+        <span className="footer-credit-line" />
+      </div>
     </div>
   );
 }

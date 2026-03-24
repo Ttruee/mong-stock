@@ -33,7 +33,7 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  padding: 24px 16px 120px;
+  padding: 48px 16px 120px;
 }
 
 .mono { font-family: 'DM Mono', monospace; }
@@ -369,8 +369,7 @@ body {
   background: var(--footer-bg);
   backdrop-filter: blur(12px);
   border-top: 1px solid var(--border);
-  padding: 14px 16px;
-  padding-bottom: calc(14px + env(safe-area-inset-bottom));
+  padding: 14px 16px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -390,6 +389,28 @@ body {
   color: var(--muted);
 }
 .footer-info strong { color: var(--green); font-family: 'DM Mono', monospace; }
+.footer-credit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 860px;
+  padding-top: 10px;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.footer-credit-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.footer-credit-text {
+  font-size: 11px;
+  color: var(--muted);
+  opacity: 0.6;
+  white-space: nowrap;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.04em;
+}
 .register-btn {
   padding: 11px 28px;
   border-radius: 10px;
