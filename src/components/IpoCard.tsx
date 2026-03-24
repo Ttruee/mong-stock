@@ -60,6 +60,10 @@ export default function IpoCard({ ipo, onToggle, onDetail }: IpoCardProps) {
               <span className="val" style={{ color: 'var(--muted)' }}>미정</span>
             )}
           </span>
+          <span className="item">
+            <span className="label">주관사</span>
+            <span className="val">{ipo.lead_manager}</span>
+          </span>
         </div>
       </div>
       <div className="card-dates">
