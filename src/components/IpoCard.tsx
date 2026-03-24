@@ -39,10 +39,6 @@ export default function IpoCard({ ipo, onToggle, onDetail }: IpoCardProps) {
         </div>
         <div className="card-meta">
           <span className="item">
-            <span className="label">시장</span>
-            <span className="val">{ipo.market}</span>
-          </span>
-          <span className="item">
             <span className="label">공모가</span>
             <span className="val">{ipo.price}</span>
           </span>
@@ -57,8 +53,12 @@ export default function IpoCard({ ipo, onToggle, onDetail }: IpoCardProps) {
             )}
           </span>
           <span className="item">
-            <span className="label">주관사</span>
-            <span className="val">{ipo.lead_manager}</span>
+            <span className="label">최소수량</span>
+            <span className="val">{ipo.min_qty ?? '미정'}</span>
+          </span>
+          <span className="item">
+            <span className="label">최소금액</span>
+            <span className="val">{ipo.min_amount ?? '미정'}</span>
           </span>
         </div>
       </div>

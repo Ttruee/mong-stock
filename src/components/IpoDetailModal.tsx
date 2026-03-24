@@ -62,6 +62,14 @@ export default function IpoDetailModal({ ipo, onClose }: Props) {
               )}
             </div>
             <div className="modal-row">
+              <span className="modal-label">최소청약수량</span>
+              <span className="modal-val mono">{ipo.min_qty ?? '미정'}</span>
+            </div>
+            <div className="modal-row">
+              <span className="modal-label">최소청약금액</span>
+              <span className="modal-val mono">{ipo.min_amount ?? '미정'}</span>
+            </div>
+            <div className="modal-row">
               <span className="modal-label">주관사</span>
               <span className="modal-val">{ipo.lead_manager}</span>
             </div>

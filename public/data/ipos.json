@@ -12,7 +12,9 @@
       "refund_date": "03.16",
       "list_date": "03.20",
       "comp_rate": 839.23,
-      "lead_manager": "한국투자증권"
+      "lead_manager": "한국투자증권",
+      "min_qty": "10주",
+      "min_amount": "130,000원"
     },
     {
       "id": 2,
@@ -25,7 +27,9 @@
       "refund_date": "03.19",
       "list_date": "03.26",
       "comp_rate": 1108.93,
-      "lead_manager": "신한투자증권"
+      "lead_manager": "신한투자증권",
+      "min_qty": "10주",
+      "min_amount": "108,000원"
     },
     {
       "id": 3,
@@ -38,7 +42,9 @@
       "refund_date": "03.19",
       "list_date": "03.25",
       "comp_rate": 1172.59,
-      "lead_manager": "한국투자증권"
+      "lead_manager": "한국투자증권",
+      "min_qty": "10주",
+      "min_amount": "95,000원"
     },
     {
       "id": 4,
@@ -51,7 +57,9 @@
       "refund_date": "03.24",
       "list_date": "03.31",
       "comp_rate": 1352.63,
-      "lead_manager": "KB증권"
+      "lead_manager": "KB증권",
+      "min_qty": "10주",
+      "min_amount": "55,000원"
     },
     {
       "id": 5,
@@ -64,7 +72,9 @@
       "refund_date": "03.27",
       "list_date": "04.02",
       "comp_rate": 1328.82,
-      "lead_manager": "NH투자증권"
+      "lead_manager": "NH투자증권",
+      "min_qty": "10주",
+      "min_amount": "83,000원"
     },
     {
       "id": 6,
@@ -77,7 +87,9 @@
       "refund_date": "미정",
       "list_date": "미정",
       "comp_rate": null,
-      "lead_manager": "미정"
+      "lead_manager": "미정",
+      "min_qty": "10주",
+      "min_amount": "30,000원"
     },
     {
       "id": 7,
@@ -90,7 +102,9 @@
       "refund_date": "미정",
       "list_date": "미정",
       "comp_rate": null,
-      "lead_manager": "KB증권"
+      "lead_manager": "KB증권",
+      "min_qty": "10주",
+      "min_amount": "76,500원"
     }
   ]
 }

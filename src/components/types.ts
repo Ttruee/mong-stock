@@ -10,6 +10,8 @@ export interface IpoData {
   list_date: string;
   comp_rate: number | null;
   lead_manager: string;
+  min_qty: string | null;
+  min_amount: string | null;
 }
 
 export interface IpoRuntime extends IpoData {
