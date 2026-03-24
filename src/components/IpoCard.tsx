@@ -38,32 +38,32 @@ export default function IpoCard({ ipo, onToggle, onDetail }: IpoCardProps) {
           {ipo.registered && <span className="badge badge-reg">✓ 등록됨</span>}
         </div>
         <div className="card-meta">
-          <span className="item">
-            <span className="label">최소수량</span>
-            <span className="val">{ipo.min_qty ?? '미정'}</span>
-          </span>
-          <span className="item">
-            <span className="label">최소금액</span>
-            <span className="val">{ipo.min_amount ?? '미정'}</span>
-          </span>
-          <span className="item">
-            <span className="label">공모가</span>
-            <span className="val">{ipo.price}</span>
-          </span>
-          <span className="item">
-            <span className="label">경쟁률</span>
-            {ipo.comp_rate != null ? (
-              <span className={`val ${rateClass(ipo.comp_rate)}`}>
-                {ipo.comp_rate.toLocaleString()}:1
-              </span>
-            ) : (
-              <span className="val" style={{ color: 'var(--muted)' }}>미정</span>
-            )}
-          </span>
-          <span className="item">
-            <span className="label">주관사</span>
-            <span className="val">{ipo.lead_manager}</span>
-          </span>
+          <div className="card-meta-row">
+            <span className="item">
+              <span className="label">최소청약</span>
+              <span className="val">{ipo.min_qty ?? '미정'} / {ipo.min_amount ?? '미정'}</span>
+            </span>
+            <span className="item">
+              <span className="label">주관사</span>
+              <span className="val">{ipo.lead_manager}</span>
+            </span>
+          </div>
+          <div className="card-meta-row">
+            <span className="item">
+              <span className="label">공모가</span>
+              <span className="val">{ipo.price}</span>
+            </span>
+            <span className="item">
+              <span className="label">경쟁률</span>
+              {ipo.comp_rate != null ? (
+                <span className={`val ${rateClass(ipo.comp_rate)}`}>
+                  {ipo.comp_rate.toLocaleString()}:1
+                </span>
+              ) : (
+                <span className="val" style={{ color: 'var(--muted)' }}>미정</span>
+              )}
+            </span>
+          </div>
         </div>
       </div>
       <div className="card-dates">
