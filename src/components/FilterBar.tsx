@@ -12,7 +12,6 @@ const FILTERS: { value: FilterType; label: string }[] = [
   { value: 'bio',  label: '바이오' },
   { value: 'med',  label: '의료기기' },
   { value: 'fin',  label: '핀테크' },
-  { value: 'rate', label: '경쟁률 높은순' },
 ];
 
 export default function FilterBar({ currentFilter, onFilterChange }: FilterBarProps) {

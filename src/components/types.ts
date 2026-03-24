@@ -17,7 +17,7 @@ export interface IpoRuntime extends IpoData {
   registered: boolean;
 }
 
-export type FilterType = 'all' | 'bio' | 'med' | 'fin' | 'rate';
+export type FilterType = 'all' | 'bio' | 'med' | 'fin';
 export type ViewType = 'week' | 'month';
 export type EventType = 'sub_start' | 'sub_end' | 'list_date' | 'refund_date';
 

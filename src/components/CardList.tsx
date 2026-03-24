@@ -26,15 +26,6 @@ export default function CardList({ ipos, currentFilter, currentView, onToggle, o
   if (currentFilter === 'bio')  list = list.filter(i => i.sector === 'bio');
   if (currentFilter === 'med')  list = list.filter(i => i.sector === 'med');
   if (currentFilter === 'fin')  list = list.filter(i => i.sector === 'fin');
-  if (currentFilter === 'rate') {
-    list.sort((a, b) => {
-      if (a.comp_rate == null && b.comp_rate == null) return 0;
-      if (a.comp_rate == null) return 1;
-      if (b.comp_rate == null) return -1;
-      return b.comp_rate - a.comp_rate;
-    });
-  }
-
   // 뷰 필터
   if (currentView === 'week') {
     list = list.filter(i =>
