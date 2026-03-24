@@ -41,7 +41,7 @@ export default function IpoCard({ ipo, onToggle, onDetail }: IpoCardProps) {
           <div className="card-meta-row">
             <span className="item">
               <span className="label">최소청약</span>
-              <span className="val">{ipo.min_qty ?? '미정'} / {ipo.min_amount ?? '미정'}</span>
+              <span className="val">{ipo.min_qty ?? '미정'}/{ipo.min_amount ?? '미정'}</span>
             </span>
             <span className="item">
               <span className="label">주관사</span>
