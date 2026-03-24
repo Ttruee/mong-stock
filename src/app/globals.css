@@ -33,7 +33,7 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  padding: calc(64px + env(safe-area-inset-top)) 16px 120px;
+  padding: 64px 16px 120px;
 }
 
 .mono { font-family: 'DM Mono', monospace; }
@@ -43,6 +43,15 @@ body {
   max-width: 860px;
   margin: 0 auto;
   padding-bottom: calc(72px + env(safe-area-inset-bottom));
+}
+
+/* ── TOP SAFE AREA COVER (아이폰 카메라/노치 스크롤 가림막) ── */
+.top-safe-cover {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: env(safe-area-inset-top);
+  background: var(--bg);
+  z-index: 200;
 }
 
 /* ── HEADER ── */

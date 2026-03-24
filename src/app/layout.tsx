@@ -38,7 +38,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <div className="top-safe-cover" />
+        {children}
+      </body>
     </html>
   );
 }
