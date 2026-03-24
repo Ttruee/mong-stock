@@ -395,7 +395,8 @@ body {
   align-items: center;
   width: 100%;
   max-width: 860px;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: 0;
+  margin-bottom: env(safe-area-inset-bottom);
 }
 .footer-credit-divider {
   width: 100%;
@@ -410,7 +411,6 @@ body {
   opacity: 0.55;
   font-family: 'DM Mono', monospace;
   letter-spacing: 0.05em;
-  margin-bottom: 4px;
 }
 .register-btn {
   padding: 8px 22px;
