@@ -1,66 +1,67 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 
   <!-- Background -->
-  <rect width="512" height="512" rx="110" fill="#111318"/>
+  <rect width="512" height="512" rx="104" fill="#f5e6c8"/>
 
-  <!-- Straw (behind cup rim) -->
-  <rect x="305" y="55" width="24" height="210" rx="12" fill="#4ade80"/>
-  <rect x="311" y="55" width="8" height="210" rx="4" fill="rgba(255,255,255,0.35)"/>
-  <!-- Straw bent tip -->
-  <rect x="305" y="55" width="40" height="24" rx="12" fill="#4ade80"/>
+  <!-- ── STRAW ── -->
+  <line x1="292" y1="448" x2="390" y2="88"
+        stroke="#1a1005" stroke-width="30" stroke-linecap="round"/>
+  <line x1="292" y1="448" x2="390" y2="88"
+        stroke="#f7cf6b" stroke-width="20" stroke-linecap="round"/>
+  <!-- Straw stripe -->
+  <line x1="292" y1="448" x2="390" y2="88"
+        stroke="rgba(255,255,255,0.4)" stroke-width="7" stroke-linecap="round"
+        stroke-dasharray="28 28" stroke-dashoffset="0"/>
 
-  <!-- Cup body (chubby & round) -->
-  <path d="M 158 172 L 182 430 Q 188 462 256 462 Q 324 462 330 430 L 354 172 Z" fill="#1c1008"/>
+  <!-- ── GLASS FILL (slightly transparent so straw shows) ── -->
+  <path d="M 148 172 L 358 172 L 340 422 Q 336 452 246 452 Q 156 452 152 422 Z"
+        fill="#d4a96a"/>
 
-  <!-- Ice cubes peeking at top -->
-  <rect x="178" y="178" width="72" height="66" rx="14" fill="rgba(210,238,255,0.72)" stroke="rgba(255,255,255,0.85)" stroke-width="3"/>
-  <rect x="187" y="187" width="24" height="14" rx="5" fill="rgba(255,255,255,0.55)"/>
+  <!-- Coffee at bottom -->
+  <path d="M 157 370 L 340 358 L 340 422 Q 336 452 246 452 Q 156 452 152 422 L 157 370 Z"
+        fill="#3d1f05"/>
 
-  <rect x="242" y="182" width="76" height="68" rx="14" fill="rgba(195,228,255,0.66)" stroke="rgba(255,255,255,0.80)" stroke-width="3"/>
-  <rect x="252" y="192" width="26" height="14" rx="5" fill="rgba(255,255,255,0.48)"/>
+  <!-- ── ICE CUBES ── -->
+  <!-- Ice 1 -->
+  <rect x="162" y="188" width="88" height="80" rx="14"
+        fill="#8ecff0" stroke="#1a1005" stroke-width="8"/>
+  <rect x="172" y="198" width="28" height="16" rx="5" fill="rgba(255,255,255,0.55)"/>
 
-  <rect x="183" y="236" width="64" height="58" rx="12" fill="rgba(220,242,255,0.68)" stroke="rgba(255,255,255,0.78)" stroke-width="3"/>
+  <!-- Ice 2 -->
+  <rect x="258" y="194" width="84" height="78" rx="14"
+        fill="#8ecff0" stroke="#1a1005" stroke-width="8"/>
+  <rect x="268" y="204" width="26" height="15" rx="5" fill="rgba(255,255,255,0.5)"/>
 
-  <!-- Cup outline -->
-  <path d="M 158 172 L 182 430 Q 188 464 256 464 Q 324 464 330 430 L 354 172 Z"
-        fill="none" stroke="#4ade80" stroke-width="11" stroke-linejoin="round"/>
+  <!-- Ice 3 (lower) -->
+  <rect x="168" y="272" width="78" height="72" rx="13"
+        fill="#8ecff0" stroke="#1a1005" stroke-width="8"/>
+  <rect x="177" y="281" width="24" height="14" rx="4" fill="rgba(255,255,255,0.5)"/>
 
-  <!-- Top rim -->
-  <ellipse cx="256" cy="172" rx="98" ry="21" fill="#1c1008"/>
-  <ellipse cx="256" cy="172" rx="98" ry="21" fill="none" stroke="#4ade80" stroke-width="11"/>
+  <!-- ── GLASS OUTLINE ── -->
+  <path d="M 148 172 L 358 172 L 340 422 Q 336 452 246 452 Q 156 452 152 422 Z"
+        fill="none" stroke="#1a1005" stroke-width="13" stroke-linejoin="round"/>
+  <!-- Glass top rim -->
+  <line x1="148" y1="172" x2="358" y2="172" stroke="#1a1005" stroke-width="13" stroke-linecap="round"/>
 
-  <!-- ── KAWAII FACE ── -->
+  <!-- Glass highlight (left side shine) -->
+  <path d="M 162 195 L 158 390" stroke="rgba(255,255,255,0.25)" stroke-width="10" stroke-linecap="round"/>
 
-  <!-- Left eye white -->
-  <ellipse cx="210" cy="340" rx="28" ry="30" fill="white"/>
-  <!-- Left pupil -->
-  <ellipse cx="210" cy="343" rx="17" ry="19" fill="#1a0e06"/>
-  <!-- Left eye shine -->
-  <circle cx="219" cy="334" r="7" fill="white"/>
-  <circle cx="207" cy="348" r="3.5" fill="rgba(255,255,255,0.5)"/>
+  <!-- ── LEMON SLICE (on straw top) ── -->
+  <!-- Lemon outline circle -->
+  <circle cx="388" cy="96" r="46" fill="#f7cf3a" stroke="#1a1005" stroke-width="10"/>
+  <!-- Lemon inner segments -->
+  <circle cx="388" cy="96" r="28" fill="#fde97a" stroke="#1a1005" stroke-width="6"/>
+  <line x1="388" y1="68" x2="388" y2="124" stroke="#1a1005" stroke-width="5"/>
+  <line x1="364" y1="82" x2="412" y2="110" stroke="#1a1005" stroke-width="5"/>
+  <line x1="364" y1="110" x2="412" y2="82" stroke="#1a1005" stroke-width="5"/>
 
-  <!-- Right eye white -->
-  <ellipse cx="302" cy="340" rx="28" ry="30" fill="white"/>
-  <!-- Right pupil -->
-  <ellipse cx="302" cy="343" rx="17" ry="19" fill="#1a0e06"/>
-  <!-- Right eye shine -->
-  <circle cx="311" cy="334" r="7" fill="white"/>
-  <circle cx="299" cy="348" r="3.5" fill="rgba(255,255,255,0.5)"/>
+  <!-- ── COFFEE BEANS ── -->
+  <!-- Bean 1 -->
+  <ellipse cx="390" cy="368" rx="30" ry="20" fill="#6b3a1f" stroke="#1a1005" stroke-width="7" transform="rotate(-30 390 368)"/>
+  <path d="M 373 356 Q 390 372 407 380" fill="none" stroke="#1a1005" stroke-width="4.5" stroke-linecap="round" transform="rotate(-30 390 368)"/>
 
-  <!-- Blush (rosy cheeks) -->
-  <ellipse cx="182" cy="368" rx="22" ry="13" fill="rgba(255,140,160,0.42)"/>
-  <ellipse cx="330" cy="368" rx="22" ry="13" fill="rgba(255,140,160,0.42)"/>
-
-  <!-- Smile -->
-  <path d="M 224 388 Q 256 414 288 388" fill="none" stroke="white" stroke-width="7.5" stroke-linecap="round"/>
-
-  <!-- Tiny sparkles around cup -->
-  <circle cx="130" cy="230" r="5" fill="#4ade80" opacity="0.7"/>
-  <circle cx="118" cy="252" r="3" fill="#4ade80" opacity="0.5"/>
-  <circle cx="142" cy="258" r="3" fill="#4ade80" opacity="0.4"/>
-
-  <circle cx="382" cy="220" r="5" fill="#a78bfa" opacity="0.7"/>
-  <circle cx="394" cy="245" r="3" fill="#a78bfa" opacity="0.5"/>
-  <circle cx="370" cy="248" r="3" fill="#a78bfa" opacity="0.4"/>
+  <!-- Bean 2 -->
+  <ellipse cx="420" cy="415" rx="28" ry="18" fill="#6b3a1f" stroke="#1a1005" stroke-width="7" transform="rotate(20 420 415)"/>
+  <path d="M 404 406 Q 420 419 436 422" fill="none" stroke="#1a1005" stroke-width="4.5" stroke-linecap="round" transform="rotate(20 420 415)"/>
 
 </svg>
