@@ -42,6 +42,7 @@ body {
 .wrapper {
   max-width: 860px;
   margin: 0 auto;
+  padding-bottom: calc(90px + env(safe-area-inset-bottom));
 }
 
 /* ── HEADER ── */
