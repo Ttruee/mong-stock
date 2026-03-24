@@ -1,0 +1,96 @@
+{
+  "lastUpdated": "2026-03-23",
+  "ipos": [
+    {
+      "id": 1,
+      "name": "아이엠바이오로직스",
+      "sector": "bio",
+      "market": "코스닥",
+      "price": "26,000원",
+      "sub_start": "03.11",
+      "sub_end": "03.12",
+      "refund_date": "03.16",
+      "list_date": "03.20",
+      "comp_rate": 839.23,
+      "lead_manager": "한국투자증권"
+    },
+    {
+      "id": 2,
+      "name": "메쥬",
+      "sector": "med",
+      "market": "코스닥",
+      "price": "21,600원",
+      "sub_start": "03.16",
+      "sub_end": "03.17",
+      "refund_date": "03.19",
+      "list_date": "03.26",
+      "comp_rate": 1108.93,
+      "lead_manager": "신한투자증권"
+    },
+    {
+      "id": 3,
+      "name": "한패스",
+      "sector": "fin",
+      "market": "코스닥",
+      "price": "19,000원",
+      "sub_start": "03.16",
+      "sub_end": "03.17",
+      "refund_date": "03.19",
+      "list_date": "03.25",
+      "comp_rate": 1172.59,
+      "lead_manager": "한국투자증권"
+    },
+    {
+      "id": 4,
+      "name": "리센스메디컬",
+      "sector": "med",
+      "market": "코스닥",
+      "price": "11,000원",
+      "sub_start": "03.19",
+      "sub_end": "03.20",
+      "refund_date": "03.24",
+      "list_date": "03.31",
+      "comp_rate": 1352.63,
+      "lead_manager": "KB증권"
+    },
+    {
+      "id": 5,
+      "name": "인벤테라",
+      "sector": "bio",
+      "market": "코스닥",
+      "price": "16,600원",
+      "sub_start": "03.23",
+      "sub_end": "03.24",
+      "refund_date": "03.27",
+      "list_date": "04.02",
+      "comp_rate": 1328.82,
+      "lead_manager": "NH투자증권"
+    },
+    {
+      "id": 6,
+      "name": "코스모로보틱스",
+      "sector": "etc",
+      "market": "코스닥",
+      "price": "5,300~6,000원",
+      "sub_start": "04.09",
+      "sub_end": "04.10",
+      "refund_date": "미정",
+      "list_date": "미정",
+      "comp_rate": null,
+      "lead_manager": "미정"
+    },
+    {
+      "id": 7,
+      "name": "채비",
+      "sector": "etc",
+      "market": "코스닥",
+      "price": "12,300~15,300원",
+      "sub_start": "04.20",
+      "sub_end": "04.21",
+      "refund_date": "미정",
+      "list_date": "미정",
+      "comp_rate": null,
+      "lead_manager": "KB증권"
+    }
+  ]
+}
