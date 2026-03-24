@@ -97,7 +97,7 @@ export default function Home() {
 
   // ── 데이터 로드 ──
   useEffect(() => {
-    fetch('/mong-stock/data/ipos.json')
+    fetch('/data/ipos.json')
       .then(r => r.json())
       .then((json: { lastUpdated: string; ipos: IpoData[] }) => {
         const now = new Date();
