@@ -42,7 +42,7 @@ body {
 .wrapper {
   max-width: 860px;
   margin: 0 auto;
-  padding-bottom: calc(90px + env(safe-area-inset-bottom));
+  padding-bottom: calc(72px + env(safe-area-inset-bottom));
 }
 
 /* ── HEADER ── */
@@ -395,7 +395,7 @@ body {
   align-items: center;
   width: 100%;
   max-width: 860px;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: 0;
 }
 .footer-credit-divider {
   width: 100%;
@@ -410,7 +410,7 @@ body {
   opacity: 0.55;
   font-family: 'DM Mono', monospace;
   letter-spacing: 0.05em;
-  padding-bottom: 2px;
+  padding-bottom: calc(2px + env(safe-area-inset-bottom));
 }
 .register-btn {
   padding: 8px 22px;
