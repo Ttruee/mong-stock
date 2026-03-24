@@ -5,16 +5,14 @@ import ThemeToggle from './ThemeToggle';
 
 const MagnifyIcon = () => (
   <svg width="26" height="26" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline', verticalAlign: 'middle', marginRight: '6px', flexShrink: 0 }}>
-    {/* Glass circle */}
-    <circle cx="11.5" cy="11.5" r="8" fill="#1e2027" stroke="#4ade80" strokeWidth="2.4"/>
-    {/* Inner shine */}
-    <circle cx="8.5" cy="8.5" r="2.2" fill="rgba(255,255,255,0.12)"/>
-    {/* Tiny sparkle dot */}
-    <circle cx="15.5" cy="7" r="1.1" fill="#4ade80" opacity="0.8"/>
-    {/* Handle */}
-    <line x1="17.8" y1="17.8" x2="24.5" y2="24.5" stroke="#4ade80" strokeWidth="2.8" strokeLinecap="round"/>
-    {/* Handle grip knob */}
-    <circle cx="24.8" cy="24.8" r="1.6" fill="#4ade80"/>
+    {/* Glass circle - soft glassy look */}
+    <circle cx="11.5" cy="11.5" r="8.5" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.75)" strokeWidth="2"/>
+    {/* Inner glass reflection - top-left shine */}
+    <circle cx="8.2" cy="8.2" r="2.6" fill="rgba(255,255,255,0.18)"/>
+    {/* Small sparkle inside lens */}
+    <circle cx="14.5" cy="9" r="0.9" fill="rgba(255,255,255,0.55)"/>
+    {/* Handle - rounded, chubby */}
+    <line x1="17.8" y1="17.8" x2="24" y2="24" stroke="rgba(255,255,255,0.85)" strokeWidth="3" strokeLinecap="round"/>
   </svg>
 );
 
