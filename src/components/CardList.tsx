@@ -12,8 +12,15 @@ interface CardListProps {
   onDetail: (ipo: IpoRuntime) => void;
 }
 
+function parseMmdd(mmdd: string): number {
+  if (!mmdd || mmdd === '미정') return 0;
+  const [m, d] = mmdd.split('.').map(Number);
+  return m * 100 + d;
+}
+
 export default function CardList({ ipos, currentFilter, currentView, onToggle, onDetail }: CardListProps) {
-  let list = [...ipos];
+  // 기본 정렬: 청약 시작일 내림차순 (최신 날짜 먼저)
+  let list = [...ipos].sort((a, b) => parseMmdd(b.sub_start) - parseMmdd(a.sub_start));
 
   // 섹터 필터
   if (currentFilter === 'bio')  list = list.filter(i => i.sector === 'bio');
