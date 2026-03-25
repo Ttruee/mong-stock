@@ -29,7 +29,7 @@ export default function Header({ currentView, onViewChange, lastUpdated }: Heade
   return (
     <header className="header">
       <div className="header-top">
-        <h1 style={{ display: 'flex', alignItems: 'center' }}><MagnifyIcon />주린이레이더</h1>
+        <h1 style={{ display: 'flex', alignItems: 'center' }}><MagnifyIcon />주린이키우기</h1>
         <div className="header-right">
           <button
             className={`toggle-btn${currentView === 'week' ? ' active' : ''}`}

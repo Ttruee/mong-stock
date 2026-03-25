@@ -667,13 +667,14 @@ body {
 .modal-muted { color: var(--muted) !important; }
 
 /* ── SPLASH SCREEN ── */
-@keyframes splashFadeIn {
+@keyframes splashAnim {
+  0%   { opacity: 1; pointer-events: all; }
+  60%  { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}
+@keyframes splashContentIn {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes splashFadeOut {
-  from { opacity: 1; }
-  to   { opacity: 0; }
 }
 .splash {
   position: fixed;
@@ -686,30 +687,19 @@ body {
   justify-content: center;
   gap: 12px;
   pointer-events: none;
-}
-.splash.hiding {
-  animation: splashFadeOut .4s ease forwards;
+  animation: splashAnim 1.3s ease 0.1s forwards;
 }
 .splash-title {
   font-size: 26px;
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.5px;
-  animation: splashFadeIn .4s ease forwards;
+  animation: splashContentIn .35s ease forwards;
 }
 .splash-subtitle {
   font-size: 13px;
   color: var(--muted);
-  animation: splashFadeIn .4s ease .1s both;
-}
-.splash-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--green);
-  display: inline-block;
-  margin-right: 6px;
-  vertical-align: middle;
+  animation: splashContentIn .35s ease .1s both;
 }
 
 /* ── REGISTER BTN LOADING ── */
