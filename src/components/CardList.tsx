@@ -23,9 +23,7 @@ export default function CardList({ ipos, currentFilter, currentView, onToggle, o
   let list = [...ipos].sort((a, b) => parseMmdd(b.sub_start) - parseMmdd(a.sub_start));
 
   // 섹터 필터
-  if (currentFilter === 'bio')  list = list.filter(i => i.sector === 'bio');
-  if (currentFilter === 'med')  list = list.filter(i => i.sector === 'med');
-  if (currentFilter === 'fin')  list = list.filter(i => i.sector === 'fin');
+  if (currentFilter !== 'all') list = list.filter(i => i.sector === currentFilter);
   // 뷰 필터
   if (currentView === 'week') {
     list = list.filter(i =>
