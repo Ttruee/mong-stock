@@ -247,14 +247,13 @@ export default function Home() {
   }
 
   function buildDescription(ipo: IpoRuntime): string {
-    const rateStr = ipo.comp_rate ? `${ipo.comp_rate.toLocaleString()}:1` : '미정';
+    const minInfo = (ipo.min_qty && ipo.min_amount)
+      ? `${ipo.min_qty}주 / ${ipo.min_amount}`
+      : (ipo.min_qty || ipo.min_amount || '미정');
     return [
-      `시장: ${ipo.market}`,
       `공모가: ${ipo.price}`,
-      `기관 경쟁률: ${rateStr}`,
+      `최소청약: ${minInfo}`,
       `주관사: ${ipo.lead_manager}`,
-      `청약: ${ipo.sub_start} ~ ${ipo.sub_end}`,
-      `상장: ${ipo.list_date}`,
     ].join('\n');
   }
 
