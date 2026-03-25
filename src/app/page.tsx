@@ -86,6 +86,9 @@ export default function Home() {
   const [currentView, setCurrentView] = useState<ViewType>('week');
   const [activeEvents, setActiveEvents] = useState<EventType[]>(DEFAULT_ACTIVE_EVENTS);
   const [loading, setLoading] = useState(false);
+  const [dataLoading, setDataLoading] = useState(true);
+  const [splash, setSplash] = useState(true);
+  const [splashHiding, setSplashHiding] = useState(false);
   const [detailIpo, setDetailIpo] = useState<IpoRuntime | null>(null);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | ''; visible: boolean }>({
     message: '',
@@ -94,6 +97,13 @@ export default function Home() {
   });
 
   const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // ── 스플래시 타이머 ──
+  useEffect(() => {
+    const hide = setTimeout(() => setSplashHiding(true), 800);
+    const remove = setTimeout(() => setSplash(false), 1200);
+    return () => { clearTimeout(hide); clearTimeout(remove); };
+  }, []);
   const gapiReadyRef   = useRef(false);
   const tokenClientRef = useRef<TokenClient | null>(null);
 
@@ -124,7 +134,8 @@ export default function Home() {
         setLastUpdated(json.lastUpdated);
         localStorage.setItem('ipo_last_updated', json.lastUpdated);
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => setDataLoading(false));
 
     // 이벤트 유형 복원
     const savedEvents = JSON.parse(localStorage.getItem('ipo_active_events') || 'null') as EventType[] | null;
@@ -348,6 +359,15 @@ export default function Home() {
   const selectedCount = ipos.filter(i => i.selected).length;
 
   return (
+    <>
+    {splash && (
+      <div className={`splash${splashHiding ? ' hiding' : ''}`}>
+        <div className="splash-title">
+          <span className="splash-dot" />주린이레이더
+        </div>
+        <div className="splash-subtitle">공모주 청약 일정 트래커</div>
+      </div>
+    )}
     <div className="wrapper">
       <Header
         currentView={currentView}
@@ -374,5 +394,6 @@ export default function Home() {
         onRegister={handleRegister}
       />
     </div>
+    </>
   );
 }
