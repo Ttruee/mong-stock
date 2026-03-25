@@ -148,7 +148,7 @@ export default function Home() {
   const handleToggleCard = useCallback((id: number) => {
     setIpos(prev =>
       prev.map(ipo =>
-        ipo.id === id && !ipo.registered
+        ipo.id === id
           ? { ...ipo, selected: !ipo.selected }
           : ipo
       )
@@ -306,7 +306,7 @@ export default function Home() {
   }
 
   const handleRegister = async () => {
-    const selectedIpos = ipos.filter(i => i.selected && !i.registered);
+    const selectedIpos = ipos.filter(i => i.selected);
     if (selectedIpos.length === 0) return;
 
     const events = buildCalendarEvents(selectedIpos, activeEvents);

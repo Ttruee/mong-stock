@@ -275,7 +275,7 @@ body {
   border-left-color: var(--green);
   background: rgba(74, 222, 128, .04);
 }
-.ipo-card.registered { opacity: .45; pointer-events: none; }
+.ipo-card.registered { opacity: .45; }
 .ipo-card.past { opacity: .5; }
 .ipo-card.upcoming { background: var(--surface); border-color: var(--border); }
 .ipo-card.upcoming.selected { border-left-color: var(--green); background: rgba(74, 222, 128, .04); }
