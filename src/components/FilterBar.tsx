@@ -8,10 +8,12 @@ interface FilterBarProps {
 }
 
 const FILTERS: { value: FilterType; label: string }[] = [
-  { value: 'all',  label: '전체' },
-  { value: 'bio',  label: '바이오' },
-  { value: 'med',  label: '의료기기' },
-  { value: 'fin',  label: '핀테크' },
+  { value: 'all',      label: '전체' },
+  { value: 'health',   label: '헬스케어' },
+  { value: 'it',       label: 'IT/테크' },
+  { value: 'energy',   label: '에너지' },
+  { value: 'consumer', label: '소비재' },
+  { value: 'etc',      label: '기타' },
 ];
 
 export default function FilterBar({ currentFilter, onFilterChange }: FilterBarProps) {

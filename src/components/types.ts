@@ -1,7 +1,7 @@
 export interface IpoData {
   id: number;
   name: string;
-  sector: 'bio' | 'med' | 'fin' | 'etc';
+  sector: 'health' | 'it' | 'energy' | 'consumer' | 'etc';
   market: string;
   price: string;
   sub_start: string;
@@ -19,7 +19,7 @@ export interface IpoRuntime extends IpoData {
   registered: boolean;
 }
 
-export type FilterType = 'all' | 'bio' | 'med' | 'fin';
+export type FilterType = 'all' | 'health' | 'it' | 'energy' | 'consumer' | 'etc';
 export type ViewType = 'week' | 'month';
 export type EventType = 'sub_start' | 'sub_end' | 'list_date' | 'refund_date';
 
@@ -31,15 +31,17 @@ export const EVENT_LABELS: Record<EventType, string> = {
 };
 
 export const SECTOR_LABEL: Record<string, string> = {
-  bio: '바이오',
-  med: '의료기기',
-  fin: '핀테크',
-  etc: '기타',
+  health:   '헬스케어',
+  it:       'IT/테크',
+  energy:   '에너지',
+  consumer: '소비재',
+  etc:      '기타',
 };
 
 export const SECTOR_CLASS: Record<string, string> = {
-  bio: 'badge-bio',
-  med: 'badge-med',
-  fin: 'badge-fin',
-  etc: 'badge-etc',
+  health:   'badge-health',
+  it:       'badge-it',
+  energy:   'badge-energy',
+  consumer: 'badge-consumer',
+  etc:      'badge-etc',
 };
