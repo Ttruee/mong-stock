@@ -2,7 +2,13 @@
 
 import { useEffect } from 'react';
 import { IpoRuntime } from './types';
-import { formatManagers } from './utils';
+const BarChartIcon = () => (
+  <svg width="17" height="17" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1"  y="10" width="4" height="9" rx="1.5" fill="currentColor" opacity="0.6"/>
+    <rect x="8"  y="5"  width="4" height="14" rx="1.5" fill="currentColor" opacity="0.8"/>
+    <rect x="15" y="1"  width="4" height="18" rx="1.5" fill="currentColor"/>
+  </svg>
+);
 
 interface StatsModalProps {
   ipos: IpoRuntime[];
@@ -20,7 +26,7 @@ export default function StatsModal({ ipos, onClose }: StatsModalProps) {
   const managerMap: Record<string, string[]> = {};
   ipos.forEach(ipo => {
     ipo.lead_manager.split(',').forEach(raw => {
-      const name = formatManagers(raw.trim());
+      const name = raw.trim();
       if (!name || name === '미정') return;
       if (!managerMap[name]) managerMap[name] = [];
       managerMap[name].push(ipo.name);
@@ -35,7 +41,7 @@ export default function StatsModal({ ipos, onClose }: StatsModalProps) {
       <div className="modal-sheet stats-modal" onClick={e => e.stopPropagation()}>
         <div className="modal-handle" />
         <div className="stats-header">
-          <span className="stats-title">📊 주관사별 현황</span>
+          <span className="stats-title"><BarChartIcon /> 주관사별 현황</span>
           <button className="modal-close" onClick={onClose}>✕</button>
         </div>
         <div className="stats-total">

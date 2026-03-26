@@ -637,6 +637,9 @@ body {
   font-size: 16px;
   font-weight: 700;
   color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 .stats-total {
   font-size: 13px;
