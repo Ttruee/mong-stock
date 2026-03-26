@@ -349,8 +349,8 @@ export default function Home() {
   return (
     <div className="wrapper">
       <Header lastUpdated={lastUpdated} />
-      <FilterBar currentFilter={currentFilter} onFilterChange={setCurrentFilter} />
       <EventPanel activeEvents={activeEvents} onToggle={handleToggleEvent} />
+      <FilterBar currentFilter={currentFilter} onFilterChange={setCurrentFilter} />
       <CardList
         ipos={ipos}
         currentFilter={currentFilter}
