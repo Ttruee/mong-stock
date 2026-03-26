@@ -7,18 +7,13 @@ export function isPast(mmdd: string): boolean {
   return target < today;
 }
 
-export function isThisWeek(mmdd: string): boolean {
+// sub_start 월이 다음 달이면 true
+export function isNextMonth(mmdd: string): boolean {
   if (!mmdd || mmdd === '미정') return false;
-  const now   = new Date();
-  const [m, d] = mmdd.split('.').map(Number);
-  const date  = new Date(now.getFullYear(), m - 1, d);
-  const mon   = new Date(now);
-  mon.setDate(now.getDate() - ((now.getDay() + 6) % 7));
-  mon.setHours(0, 0, 0, 0);
-  const sun   = new Date(mon);
-  sun.setDate(mon.getDate() + 6);
-  sun.setHours(23, 59, 59, 999);
-  return date >= mon && date <= sun;
+  const now = new Date();
+  const nextMonth = (now.getMonth() + 2 > 12) ? 1 : now.getMonth() + 2;
+  const [m] = mmdd.split('.').map(Number);
+  return m === nextMonth;
 }
 
 export function rateClass(rate: number | null): string {

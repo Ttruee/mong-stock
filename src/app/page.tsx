@@ -12,7 +12,6 @@ import {
   IpoRuntime,
   IpoData,
   FilterType,
-  ViewType,
   EventType,
   EVENT_LABELS,
 } from '@/components/types';
@@ -82,7 +81,6 @@ export default function Home() {
   const [ipos, setIpos] = useState<IpoRuntime[]>([]);
   const [lastUpdated, setLastUpdated] = useState('');
   const [currentFilter, setCurrentFilter] = useState<FilterType>('all');
-  const [currentView, setCurrentView] = useState<ViewType>('week');
   const [activeEvents, setActiveEvents] = useState<EventType[]>(DEFAULT_ACTIVE_EVENTS);
   const [loading, setLoading] = useState(false);
   const [dataLoading, setDataLoading] = useState(true);
@@ -350,17 +348,12 @@ export default function Home() {
 
   return (
     <div className="wrapper">
-      <Header
-        currentView={currentView}
-        onViewChange={setCurrentView}
-        lastUpdated={lastUpdated}
-      />
+      <Header lastUpdated={lastUpdated} />
       <FilterBar currentFilter={currentFilter} onFilterChange={setCurrentFilter} />
       <EventPanel activeEvents={activeEvents} onToggle={handleToggleEvent} />
       <CardList
         ipos={ipos}
         currentFilter={currentFilter}
-        currentView={currentView}
         onToggle={handleToggleCard}
         onDetail={setDetailIpo}
       />

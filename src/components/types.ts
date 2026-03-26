@@ -20,7 +20,6 @@ export interface IpoRuntime extends IpoData {
 }
 
 export type FilterType = 'all' | 'health' | 'it' | 'energy' | 'consumer' | 'semi' | 'battery' | 'enter' | 'beauty' | 'pharma' | 'robot' | 'ship' | 'etc';
-export type ViewType = 'week' | 'month';
 export type EventType = 'sub_start' | 'sub_end' | 'list_date' | 'refund_date';
 
 export const EVENT_LABELS: Record<EventType, string> = {

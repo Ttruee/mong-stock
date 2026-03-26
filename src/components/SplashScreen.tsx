@@ -30,6 +30,7 @@ export default function SplashScreen() {
       ))}
       <div className="splash-title">🌱 진솔이키우기</div>
       <div className="splash-subtitle">공모주 청약 일정 트래커</div>
+      <div className="splash-easter">made in JinsolNara</div>
     </div>
   );
 }
