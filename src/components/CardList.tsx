@@ -1,7 +1,7 @@
 'use client';
 
 import { IpoRuntime, FilterType } from './types';
-import { isUpcoming } from './utils';
+import { isStillRelevant } from './utils';
 import IpoCard from './IpoCard';
 
 interface CardListProps {
@@ -18,8 +18,8 @@ function parseMmdd(mmdd: string): number {
 }
 
 export default function CardList({ ipos, currentFilter, onToggle, onDetail }: CardListProps) {
-  // 청약시작일이 오늘 이후인 종목만 표시 (지난 것 제외)
-  let list = [...ipos].filter(i => isUpcoming(i.sub_start));
+  // sub_start / sub_end / list_date 중 하나라도 오늘 이후인 종목 표시
+  let list = [...ipos].filter(i => isStillRelevant(i));
 
   // 섹터 필터
   if (currentFilter !== 'all') list = list.filter(i => i.sector === currentFilter);
