@@ -24,8 +24,8 @@ export default function CardList({ ipos, currentFilter, onToggle, onDetail }: Ca
   // 섹터 필터
   if (currentFilter !== 'all') list = list.filter(i => i.sector === currentFilter);
 
-  // 청약 시작일 오름차순 정렬
-  list = list.sort((a, b) => parseMmdd(a.sub_start) - parseMmdd(b.sub_start));
+  // 상장일 내림차순 정렬 (미정은 맨 뒤)
+  list = list.sort((a, b) => parseMmdd(b.list_date) - parseMmdd(a.list_date));
 
   if (list.length === 0) {
     return (
