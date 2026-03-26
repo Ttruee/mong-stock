@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" data-theme="dark">
+    <html lang="ko" data-theme="dark" suppressHydrationWarning>
       <head>
         <style dangerouslySetInnerHTML={{ __html: 'html,body{background:#0e0f11}html[data-theme="light"],html[data-theme="light"] body{background:#f5f7fa!important}' }} />
         <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();` }} />
