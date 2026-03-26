@@ -7,13 +7,14 @@ export function isPast(mmdd: string): boolean {
   return target < today;
 }
 
-// sub_start 월이 다음 달이면 true
-export function isNextMonth(mmdd: string): boolean {
-  if (!mmdd || mmdd === '미정') return false;
+// sub_start 날짜가 오늘 이후면 true (오늘 포함)
+export function isUpcoming(mmdd: string): boolean {
+  if (!mmdd || mmdd === '미정') return true;
   const now = new Date();
-  const nextMonth = (now.getMonth() + 2 > 12) ? 1 : now.getMonth() + 2;
-  const [m] = mmdd.split('.').map(Number);
-  return m === nextMonth;
+  const [m, d] = mmdd.split('.').map(Number);
+  const date  = new Date(now.getFullYear(), m - 1, d);
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return date >= today;
 }
 
 export function rateClass(rate: number | null): string {

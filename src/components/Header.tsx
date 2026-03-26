@@ -17,8 +17,7 @@ interface HeaderProps {
 
 export default function Header({ lastUpdated }: HeaderProps) {
   const now = new Date();
-  const nextMonth = now.getMonth() + 2 > 12 ? 1 : now.getMonth() + 2;
-  const nextMonthLabel = `${now.getFullYear()}년 ${nextMonth}월`;
+  const currentMonth = `${now.getFullYear()}년 ${now.getMonth() + 1}월`;
 
   return (
     <header className="header">
@@ -29,7 +28,7 @@ export default function Header({ lastUpdated }: HeaderProps) {
         </div>
       </div>
       <div className="subtitle">
-        <span className="month">{nextMonthLabel} 청약 예정</span>
+        <span className="month">{currentMonth}</span>
         <span className="last-updated">업데이트: {lastUpdated}</span>
       </div>
     </header>
