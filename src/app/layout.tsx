@@ -29,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="ko" data-theme="dark" style={{ background: '#0e0f11' }}>
       <head>
+        <style dangerouslySetInnerHTML={{ __html: 'html,body{background:#0e0f11}' }} />
         <meta name="theme-color" content="#4ade80" />
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
