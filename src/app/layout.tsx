@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" data-theme="dark">
+    <html lang="ko" data-theme="dark" style={{ background: '#0e0f11' }}>
       <head>
         <meta name="theme-color" content="#4ade80" />
         <meta name="mobile-web-app-capable" content="yes" />
