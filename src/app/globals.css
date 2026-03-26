@@ -42,7 +42,7 @@ body {
 .wrapper {
   max-width: 860px;
   margin: 0 auto;
-  padding-bottom: calc(82px + env(safe-area-inset-bottom));
+  padding-bottom: calc(72px + env(safe-area-inset-bottom));
 }
 
 /* ── TOP SAFE AREA COVER (아이폰 카메라/노치 스크롤 가림막) ── */
@@ -433,7 +433,7 @@ body {
   opacity: 0.55;
   font-family: 'DM Mono', monospace;
   letter-spacing: 0.05em;
-  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom, 4px);
 }
 .register-btn {
   padding: 8px 22px;
