@@ -28,7 +28,11 @@ export default function Header({ lastUpdated, onStatsOpen }: HeaderProps) {
         </h1>
         <div className="header-right">
           <button className="toggle-btn stats-btn" onClick={onStatsOpen} title="주관사별 현황">
-            📊
+            <svg width="17" height="17" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1"  y="10" width="4" height="9" rx="1.5" fill="currentColor" opacity="0.6"/>
+              <rect x="8"  y="5"  width="4" height="14" rx="1.5" fill="currentColor" opacity="0.8"/>
+              <rect x="15" y="1"  width="4" height="18" rx="1.5" fill="currentColor"/>
+            </svg>
           </button>
           <ThemeToggle />
         </div>

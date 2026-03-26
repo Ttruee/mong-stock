@@ -671,7 +671,7 @@ body {
   color: var(--muted);
   line-height: 1.5;
 }
-.stats-btn { font-size: 16px; padding: 4px 8px; }
+.stats-btn { padding: 6px 10px; display: flex; align-items: center; }
 
 .modal-body { display: flex; flex-direction: column; }
 
