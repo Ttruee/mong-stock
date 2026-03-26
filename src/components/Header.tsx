@@ -13,17 +13,23 @@ const MagnifyIcon = () => (
 
 interface HeaderProps {
   lastUpdated: string;
+  onStatsOpen: () => void;
 }
 
-export default function Header({ lastUpdated }: HeaderProps) {
+export default function Header({ lastUpdated, onStatsOpen }: HeaderProps) {
   const now = new Date();
   const currentMonth = `${now.getFullYear()}년 ${now.getMonth() + 1}월`;
 
   return (
     <header className="header">
       <div className="header-top">
-        <h1 style={{ display: 'flex', alignItems: 'center' }}><MagnifyIcon />진솔이키우기</h1>
+        <h1 style={{ display: 'flex', alignItems: 'center' }}>
+          <MagnifyIcon />진솔이키우기
+        </h1>
         <div className="header-right">
+          <button className="toggle-btn stats-btn" onClick={onStatsOpen} title="주관사별 현황">
+            📊
+          </button>
           <ThemeToggle />
         </div>
       </div>

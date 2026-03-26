@@ -8,6 +8,7 @@ import CardList from '@/components/CardList';
 import FooterBar from '@/components/FooterBar';
 import Toast from '@/components/Toast';
 import IpoDetailModal from '@/components/IpoDetailModal';
+import StatsModal from '@/components/StatsModal';
 import {
   IpoRuntime,
   IpoData,
@@ -85,6 +86,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [dataLoading, setDataLoading] = useState(true);
   const [detailIpo, setDetailIpo] = useState<IpoRuntime | null>(null);
+  const [showStats, setShowStats] = useState(false);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | ''; visible: boolean }>({
     message: '',
     type: '',
@@ -348,7 +350,7 @@ export default function Home() {
 
   return (
     <div className="wrapper">
-      <Header lastUpdated={lastUpdated} />
+      <Header lastUpdated={lastUpdated} onStatsOpen={() => setShowStats(true)} />
       <EventPanel activeEvents={activeEvents} onToggle={handleToggleEvent} />
       <FilterBar currentFilter={currentFilter} onFilterChange={setCurrentFilter} />
       <CardList
@@ -359,6 +361,9 @@ export default function Home() {
       />
       {detailIpo && (
         <IpoDetailModal ipo={detailIpo} onClose={() => setDetailIpo(null)} />
+      )}
+      {showStats && (
+        <StatsModal ipos={ipos} onClose={() => setShowStats(false)} />
       )}
       <Toast message={toast.message} type={toast.type} visible={toast.visible} />
       <FooterBar
