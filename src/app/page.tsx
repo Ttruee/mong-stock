@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useCallback, useRef } from 'react';
 import Header from '@/components/Header';
-import StatCards from '@/components/StatCards';
 import FilterBar from '@/components/FilterBar';
 import EventPanel from '@/components/EventPanel';
 import CardList from '@/components/CardList';
@@ -356,7 +355,6 @@ export default function Home() {
         onViewChange={setCurrentView}
         lastUpdated={lastUpdated}
       />
-      <StatCards ipos={ipos} />
       <FilterBar currentFilter={currentFilter} onFilterChange={setCurrentFilter} />
       <EventPanel activeEvents={activeEvents} onToggle={handleToggleEvent} />
       <CardList
