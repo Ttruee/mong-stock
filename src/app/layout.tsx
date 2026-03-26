@@ -8,13 +8,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: '🌱 김경모키우기',
+  title: '🌱 진솔이키우기',
   description: '공모주 청약 일정 및 Google Calendar 등록 도구',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: '김경모키우기',
+    title: '진솔이키우기',
   },
   icons: {
     apple: '/icon.png',
@@ -42,7 +42,7 @@ export default function RootLayout({
         <div className="top-safe-cover" />
         <div className="splash" aria-hidden="true">
           <div className="splash-title">
-            🌱 김경모키우기
+            🌱 진솔이키우기
           </div>
           <div className="splash-subtitle">공모주 청약 일정 트래커</div>
         </div>

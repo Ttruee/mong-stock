@@ -1,6 +1,6 @@
 {
-  "name": "김경모키우기",
-  "short_name": "김경모키우기",
+  "name": "진솔이키우기",
+  "short_name": "진솔이키우기",
   "description": "공모주 청약 일정 및 Google Calendar 등록 도구",
   "start_url": "/",
   "display": "standalone",
