@@ -1,13 +1,13 @@
 'use client';
 
 const FLOATERS = [
-  { left: 5,  top: 12, size: 80,  delay: 0.0, dur: 2.8 },
-  { left: 68, top: 8,  size: 60,  delay: 0.5, dur: 3.2 },
-  { left: 30, top: 20, size: 90,  delay: 1.0, dur: 2.5 },
-  { left: 82, top: 42, size: 65,  delay: 0.3, dur: 3.0 },
-  { left: 12, top: 52, size: 70,  delay: 0.8, dur: 2.7 },
-  { left: 52, top: 58, size: 75,  delay: 0.2, dur: 3.4 },
-  { left: 40, top: 78, size: 55,  delay: 0.6, dur: 2.9 },
+  { left: 3,  top: 8,  size: 75,  delay: 0.0, dur: 3.2 },
+  { left: 70, top: 5,  size: 55,  delay: 0.7, dur: 2.8 },
+  { left: 38, top: 18, size: 88,  delay: 1.3, dur: 3.6 },
+  { left: 80, top: 38, size: 62,  delay: 0.2, dur: 2.6 },
+  { left: 8,  top: 48, size: 68,  delay: 1.0, dur: 3.0 },
+  { left: 55, top: 55, size: 72,  delay: 0.4, dur: 3.8 },
+  { left: 25, top: 72, size: 58,  delay: 0.9, dur: 2.4 },
 ];
 
 export default function SplashScreen() {

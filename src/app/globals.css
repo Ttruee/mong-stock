@@ -684,8 +684,11 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes floatBob {
-  0%, 100% { transform: translateY(0px)   rotate(-5deg); }
-  50%       { transform: translateY(-20px) rotate(5deg);  }
+  0%   { transform: translate(0px,   0px)   rotate(-4deg) scale(1.00); }
+  20%  { transform: translate(6px,  -14px)  rotate(2deg)  scale(1.03); }
+  45%  { transform: translate(-4px, -24px)  rotate(-2deg) scale(1.01); }
+  70%  { transform: translate(-8px, -10px)  rotate(4deg)  scale(0.98); }
+  100% { transform: translate(0px,   0px)   rotate(-4deg) scale(1.00); }
 }
 .splash {
   position: fixed;
@@ -702,11 +705,11 @@ body {
 }
 .splash-floater {
   position: absolute;
-  border-radius: 50%;
+  border-radius: 20px;
   object-fit: cover;
-  mix-blend-mode: screen;
   animation: floatBob ease-in-out infinite;
-  opacity: 0.92;
+  opacity: 0.88;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
 }
 .splash-title {
   position: relative;

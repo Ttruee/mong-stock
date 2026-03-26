@@ -30,7 +30,8 @@ export default function RootLayout({
   return (
     <html lang="ko" data-theme="dark">
       <head>
-        <style dangerouslySetInnerHTML={{ __html: 'html,body{background:#0e0f11}html[data-theme="light"],html[data-theme="light"] body{background:#f5f7fa}' }} />
+        <style dangerouslySetInnerHTML={{ __html: 'html,body{background:#0e0f11}html[data-theme="light"],html[data-theme="light"] body{background:#f5f7fa!important}' }} />
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.background=t==='light'?'#f5f7fa':'#0e0f11';}catch(e){}})();` }} />
         <meta name="theme-color" content="#4ade80" />
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
