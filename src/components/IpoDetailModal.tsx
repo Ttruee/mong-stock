@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { IpoRuntime, SECTOR_LABEL, SECTOR_CLASS } from './types';
-import { rateClass } from './utils';
+import { rateClass, formatManagers } from './utils';
 
 interface Props {
   ipo: IpoRuntime;
@@ -71,7 +71,7 @@ export default function IpoDetailModal({ ipo, onClose }: Props) {
             </div>
             <div className="modal-row">
               <span className="modal-label">주관사</span>
-              <span className="modal-val">{ipo.lead_manager}</span>
+              <span className="modal-val">{formatManagers(ipo.lead_manager)}</span>
             </div>
           </div>
 

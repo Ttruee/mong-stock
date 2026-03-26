@@ -16,7 +16,7 @@ import {
   EventType,
   EVENT_LABELS,
 } from '@/components/types';
-import { toIsoDate } from '@/components/utils';
+import { toIsoDate, formatManagers } from '@/components/utils';
 
 const CLIENT_ID = '416628876905-btnptt8qjkd71o4a4i5mlg67m1gg4c2s.apps.googleusercontent.com';
 const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
@@ -254,7 +254,7 @@ export default function Home() {
     return [
       `공모가: ${ipo.price}`,
       `최소청약: ${minInfo}`,
-      `주관사: ${ipo.lead_manager}`,
+      `주관사: ${formatManagers(ipo.lead_manager)}`,
     ].join('\n');
   }
 

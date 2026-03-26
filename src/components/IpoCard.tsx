@@ -1,7 +1,7 @@
 'use client';
 
 import { IpoRuntime, SECTOR_LABEL, SECTOR_CLASS } from './types';
-import { isPast, rateClass } from './utils';
+import { isPast, rateClass, formatManagers } from './utils';
 
 interface IpoCardProps {
   ipo: IpoRuntime;
@@ -45,7 +45,7 @@ export default function IpoCard({ ipo, onToggle, onDetail }: IpoCardProps) {
             </span>
             <span className="item">
               <span className="label">주관사</span>
-              <span className="val">{ipo.lead_manager}</span>
+              <span className="val">{formatManagers(ipo.lead_manager)}</span>
             </span>
           </div>
           <div className="card-meta-row">

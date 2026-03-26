@@ -28,6 +28,16 @@ export function rateClass(rate: number | null): string {
   return 'rate-normal';
 }
 
+// 주관사 이름에서 '증권' 제거 + 복수일 때 ' · '로 연결
+export function formatManagers(raw: string): string {
+  if (!raw || raw === '미정') return raw;
+  return raw
+    .split(/[,\/&]+/)
+    .map(s => s.trim().replace(/증권$/, '').trim())
+    .filter(Boolean)
+    .join(' · ');
+}
+
 // MM.DD → YYYY-MM-DD (현재 연도 기준)
 export function toIsoDate(mmdd: string): string {
   const [m, d] = mmdd.split('.').map(Number);
