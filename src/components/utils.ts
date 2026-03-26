@@ -40,7 +40,7 @@ export function formatManagers(raw: string): string {
     .split(/[,\/&]+/)
     .map(s => s.trim().replace(/증권$/, '').trim())
     .filter(Boolean)
-    .join(' · ');
+    .join(' / ');
 }
 
 // MM.DD → YYYY-MM-DD (현재 연도 기준)
