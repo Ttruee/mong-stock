@@ -28,9 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" data-theme="dark" style={{ background: '#0e0f11' }}>
+    <html lang="ko" data-theme="dark">
       <head>
-        <style dangerouslySetInnerHTML={{ __html: 'html,body{background:#0e0f11}' }} />
+        <style dangerouslySetInnerHTML={{ __html: 'html,body{background:#0e0f11}html[data-theme="light"],html[data-theme="light"] body{background:#f5f7fa}' }} />
         <meta name="theme-color" content="#4ade80" />
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
