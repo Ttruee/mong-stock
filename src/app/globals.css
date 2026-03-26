@@ -676,12 +676,19 @@ body {
 /* ── SPLASH SCREEN ── */
 @keyframes splashAnim {
   0%   { opacity: 1; pointer-events: all; }
-  60%  { opacity: 1; }
+  72%  { opacity: 1; }
   100% { opacity: 0; pointer-events: none; }
 }
 @keyframes splashContentIn {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes iconFall {
+  0%   { transform: translateY(-110vh) rotate(calc(var(--r) * 3)); opacity: 0; }
+  8%   { opacity: 1; }
+  78%  { transform: translateY(10px) rotate(var(--r)); }
+  88%  { transform: translateY(-5px) rotate(calc(var(--r) * 0.5)); }
+  100% { transform: translateY(0px)  rotate(var(--r)); }
 }
 .splash {
   position: fixed;
@@ -694,19 +701,28 @@ body {
   justify-content: center;
   gap: 12px;
   pointer-events: none;
-  animation: splashAnim 1.3s ease 0.1s forwards;
+  animation: splashAnim 2.2s ease 0.1s forwards;
+}
+.splash-icon {
+  position: absolute;
+  line-height: 1;
+  animation: iconFall 0.58s ease-in both;
 }
 .splash-title {
+  position: relative;
+  z-index: 1;
   font-size: 26px;
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.5px;
-  animation: splashContentIn .35s ease forwards;
+  animation: splashContentIn .4s ease 1.1s both;
 }
 .splash-subtitle {
+  position: relative;
+  z-index: 1;
   font-size: 13px;
   color: var(--muted);
-  animation: splashContentIn .35s ease .1s both;
+  animation: splashContentIn .4s ease 1.25s both;
 }
 
 /* ── REGISTER BTN LOADING ── */

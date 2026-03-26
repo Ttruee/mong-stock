@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import SplashScreen from '@/components/SplashScreen';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -41,12 +42,7 @@ export default function RootLayout({
       </head>
       <body>
         <div className="top-safe-cover" />
-        <div className="splash" aria-hidden="true">
-          <div className="splash-title">
-            🌱 진솔이키우기
-          </div>
-          <div className="splash-subtitle">공모주 청약 일정 트래커</div>
-        </div>
+        <SplashScreen />
         {children}
       </body>
     </html>
