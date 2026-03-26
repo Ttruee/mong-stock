@@ -1,7 +1,7 @@
 export interface IpoData {
   id: number;
   name: string;
-  sector: 'health' | 'it' | 'energy' | 'consumer' | 'etc';
+  sector: 'health' | 'it' | 'energy' | 'consumer' | 'semi' | 'battery' | 'enter' | 'beauty' | 'pharma' | 'robot' | 'ship' | 'etc';
   market: string;
   price: string;
   sub_start: string;
@@ -19,7 +19,7 @@ export interface IpoRuntime extends IpoData {
   registered: boolean;
 }
 
-export type FilterType = 'all' | 'health' | 'it' | 'energy' | 'consumer' | 'etc';
+export type FilterType = 'all' | 'health' | 'it' | 'energy' | 'consumer' | 'semi' | 'battery' | 'enter' | 'beauty' | 'pharma' | 'robot' | 'ship' | 'etc';
 export type ViewType = 'week' | 'month';
 export type EventType = 'sub_start' | 'sub_end' | 'list_date' | 'refund_date';
 
@@ -31,17 +31,31 @@ export const EVENT_LABELS: Record<EventType, string> = {
 };
 
 export const SECTOR_LABEL: Record<string, string> = {
-  health:   '헬스케어',
   it:       'IT/테크',
-  energy:   '에너지',
+  battery:  '2차전지',
+  robot:    '로봇',
+  semi:     '반도체',
   consumer: '소비재',
+  energy:   '에너지',
+  enter:    '엔터',
+  pharma:   '제약/의약',
+  ship:     '조선',
+  health:   '헬스케어',
+  beauty:   '화장품',
   etc:      '기타',
 };
 
 export const SECTOR_CLASS: Record<string, string> = {
-  health:   'badge-health',
   it:       'badge-it',
-  energy:   'badge-energy',
+  battery:  'badge-battery',
+  robot:    'badge-robot',
+  semi:     'badge-semi',
   consumer: 'badge-consumer',
+  energy:   'badge-energy',
+  enter:    'badge-enter',
+  pharma:   'badge-pharma',
+  ship:     'badge-ship',
+  health:   'badge-health',
+  beauty:   'badge-beauty',
   etc:      'badge-etc',
 };
